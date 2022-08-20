@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="text-center my-20 text-xl border">Check prime number</h1>
+    <div class="flex mt-10 ml-10 justify-center">
+      <input
+        type="number"
+        placeholder="enter a number"
+        onchange="primeness()"
+        class="mx-2 rounded-md py-1 px-2 border-green-500 border"
+      />
+      <button
+        onclick="primeness()"
+        class="mx-2 rounded-md py-1 px-2 border-green-500 border"
+      >
+        primeness check
+      </button>
+    </div>
+    <div id="primeness" class="text-center">
+      click the primeness button to check primeness
+    </div>
+    <script>
+      function maketriangle(n) {
+        let string = ''
+        for (let i = 1; i <= n; i++) {
+          for (let j = 1; j <= i; j++) {
+            string += i
+          }
+          string += '\n'
+        }
+        return string
+      }
+      function primeness() {
+        let number = document.getElementsByTagName('input')[0].value
+        let isprime = true
+        for (let i = 2; i < number; i++) {
+          if (number % i == 0) {
+            isprime = false
+          }
+        }
+        if (isprime) {
+          document.getElementById('primeness').innerText = 'prime'
+          document.getElementById('primeness').classList.add('text-green-700')
+        } else {
+          document.getElementById('primeness').innerText = 'not prime'
+          document.getElementById('primeness').classList.add('text-red-700')
+        }
+      }
+    </script>
+  </body>
+</html>
