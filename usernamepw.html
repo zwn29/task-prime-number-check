@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="text-center my-20 text-xl border">Login to website</h1>
+    <form class="flex flex-col mt-10 ml-10 items-center">
+      <input
+        type="text"
+        placeholder="enter the username"
+        class="mx-2 rounded-md py-1 px-2 border-green-500 border"
+      />
+      <input
+        type="password"
+        placeholder="enter the passwd"
+        class="mx-2 rounded-md py-1 px-2 border-green-500 border"
+      />
+      <button id="login">Register</button>
+    </form>
+    <script>
+      //html5 pw javascript
+      let badwords = ['Aone', 'Best', 'Coder', 'Dev', 'Developer']
+
+      document.getElementById('login').addEventListener('click', function (e) {
+        e.preventDefault()
+        let username = document.getElementsByTagName('input')[0].value
+        let passwd = document.getElementsByTagName('input')[1].value
+        //check if username is in badwords
+        for (let i = 0; i < badwords.length; i++) {
+          if (username.includes(badwords[i])) {
+            alert('username is in badwords')
+            return
+          }
+        }
+        //check if  password is in  8chars  and should have one capital letter and one number
+
+        if (
+          !passwd.match(/[A-Z]/) &&
+          passwd.length < 8 &&
+          !passwd.match(/[0-9]/)
+        ) {
+          alert('password should have one capital letter')
+          return
+        } else {
+          alert('login success')
+        }
+      })
+    </script>
+  </body>
+</html>
